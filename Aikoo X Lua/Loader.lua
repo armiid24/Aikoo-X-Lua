@@ -1,12 +1,8 @@
 --// Main UI Loader Script
---// Eksekusi satu raw link, load semua UI modular
-
 local HttpService = game:GetService("HttpService")
 
--- Base URL GitHub raw (ganti sesuai repo kamu)
 local baseURL = "https://raw.githubusercontent.com/armiid24/Aikoo-X-Lua/main/Aikoo%20X%20Lua/"
 
--- Daftar file UI yang ingin dimuat
 local uiFiles = {
     "SettingsUI.lua",
     "SettingsThemeUI.lua",
@@ -15,12 +11,10 @@ local uiFiles = {
     "AutomaticallyUI.lua",
     "InventoryUI.lua",
     "MiscUI.lua",
-    "ShopUI.lua",
-    -- Tambahkan file lain sesuai folder kamu
+    "ShopUI.lua"
 }
 
--- Fungsi untuk load dan eksekusi file
-local function loadUISlot(fileName)
+for _, fileName in ipairs(uiFiles) do
     local url = baseURL .. fileName
     local success, response = pcall(function()
         return HttpService:GetAsync(url)
@@ -38,10 +32,3 @@ local function loadUISlot(fileName)
         warn("❌ Gagal ambil:", fileName)
     end
 end
-
--- Loop semua file dan jalankan
-for _, file in ipairs(uiFiles) do
-    loadUISlot(file)
-end
-
-
