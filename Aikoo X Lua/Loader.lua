@@ -4,7 +4,7 @@
 local HttpService = game:GetService("HttpService")
 
 -- Base URL GitHub raw (ganti sesuai repo kamu)
-local baseURL = "https://raw.githubusercontent.com/armiid24/Aikoo-X-Lua/refs/heads/main/Aikoo%20X%20Lua/Loader.lua"
+local baseURL = "https://raw.githubusercontent.com/armiid24/Aikoo-X-Lua/main/Aikoo%20X%20Lua/"
 
 -- Daftar file UI yang ingin dimuat
 local uiFiles = {
@@ -43,4 +43,5 @@ end
 for _, file in ipairs(uiFiles) do
     loadUISlot(file)
 end
+
 
